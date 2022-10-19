@@ -1,13 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-// Modulos
-// Modulo.slice.js
-// Modulo.thunk.js
+import { githubApi } from './Api';
+import userReducer from './Slices/User/user.slice';
 
 const store = configureStore({
   reducer: {
-    // Asignacion : Reducer
+    user: userReducer,
+    [githubApi.reducerPath]: githubApi.reducer,
   },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(githubApi.middleware),
 });
 
 export default store;

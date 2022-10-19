@@ -1,0 +1,21 @@
+.user_card {
+  width: 50%;
+  height: 15rem;
+  background-color: antiquewhite;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+
+  .user_card__avatar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    img {
+      width: 5rem;
+      border-radius: 50%;
+      background-color: #ccc;
+    }
+  }
+}
