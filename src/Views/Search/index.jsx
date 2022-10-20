@@ -15,9 +15,6 @@ export default function Search() {
   return (
     <form onSubmit={handleSubmit} className='form_user_search'>
       <input type='text' placeholder='Search...' ref={userRef} id='user' />
-      <button type='submit' className='form_button'>
-        Search
-      </button>
     </form>
   );
 }

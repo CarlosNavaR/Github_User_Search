@@ -1,21 +1,68 @@
+@import '../../Styles/Variables/index.scss';
+
 .user_card {
-  width: 50%;
-  height: 15rem;
-  background-color: antiquewhite;
+  width: 70%;
+  height: 30%;
+  background-color: $secondary;
+  box-shadow: -1px -1px 5px 0px  rgba($color:  $primary, $alpha: 0.75);
   border-radius: 0.5rem;
   padding: 1rem;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 
   .user_card__avatar {
+    gap: 0.5rem;
+    border-radius: 50%;
+    width: 6.5rem;
+    height: 6.5rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary_light;
+
+    img {
+      width: 6rem;
+      border-radius: 50%;
+    }
+  }
+
+  .user_card__info {
+    color: #fff;
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 0.5rem;
 
-    img {
-      width: 5rem;
-      border-radius: 50%;
-      background-color: #ccc;
+    .user_info_name {
+      font-weight: 600;
+      font-size: 1.3em;
+
+      span {
+        font-size: 1em;
+        font-weight: 400;
+      }
+    }
+
+    .user_info_general {
+      color: #fff;
+      display: flex;
+      font-size: 0.8em;
+      gap: 0.5rem;
     }
   }
+}
+
+.user-icons {
+  color: $details;
+  margin-right: 0.3rem;
+  font-size: 1em;
+}
+
+.user-links {
+  color: #fff;
+  text-decoration: none;
 }
