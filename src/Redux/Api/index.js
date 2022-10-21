@@ -10,7 +10,17 @@ export const githubApi = createApi({
     getUserbyUsername: builder.query({
       query: username => `users/${username}`,
     }),
+    getFollowersByUsername: builder.query({
+      query: username => `users/${username}/followers`,
+    }),
+    getFollowingByUsername: builder.query({
+      query: username => `users/${username}/following`,
+    }),
   }),
 });
 
-export const { useGetUserbyUsernameQuery } = githubApi;
+export const {
+  useGetUserbyUsernameQuery,
+  useGetFollowersByUsernameQuery,
+  useGetFollowingByUsernameQuery,
+} = githubApi;

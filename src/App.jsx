@@ -1,16 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Search } from './Views';
+import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Search, Followers } from './Views';
 import './Styles/General/index.scss';
-import { UserCard } from './Components';
 
 function App() {
-  const { user } = useSelector(state => state.user);
-
   return (
     <div className='App'>
-      <Search />
-      {user && <UserCard user={user} />}
+      <HashRouter>
+        <Routes>
+          <Route path='/' element={<Search />} />
+          <Route path='/followers/:user' element={<Followers />} />
+          <Route path='/following/:user' element={<>b</>} />
+          <Route path='*' element={<h1>404</h1>} />
+        </Routes>
+      </HashRouter>
     </div>
   );
 }

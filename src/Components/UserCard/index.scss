@@ -1,7 +1,7 @@
 @import '../../Styles/Variables/index.scss';
 
 .user_card {
-  width: 70%;
+  width: 40%;
   height: 30%;
   background-color: $secondary;
   box-shadow: -1px -1px 5px 0px  rgba($color:  $primary, $alpha: 0.75);
@@ -10,36 +10,35 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 
   .user_card__avatar {
-    gap: 0.5rem;
     border-radius: 50%;
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 10rem;
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $secondary_light;
 
     img {
-      width: 6rem;
+      width: 9rem;
       border-radius: 50%;
     }
   }
 
   .user_card__info {
     color: #fff;
-    flex-grow: 1;
     height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 
     .user_info_name {
       font-weight: 600;
-      font-size: 1.3em;
+      font-size: 2em;
 
       span {
         font-size: 1em;
@@ -47,11 +46,15 @@
       }
     }
 
-    .user_info_general {
+    .user_info_general, .user_info_profile {
       color: #fff;
       display: flex;
-      font-size: 0.8em;
+      font-size: 1em;
       gap: 0.5rem;
+    }
+
+    .user_info_profile{
+      gap: 1rem;
     }
   }
 }
@@ -65,4 +68,21 @@
 .user-links {
   color: #fff;
   text-decoration: none;
+}
+
+.not_found_container{
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .image-notFound {
+    width: 15rem;
+  }
+
+  p {
+    font-size: 2em;
+    font-weight: 600;
+  }
 }

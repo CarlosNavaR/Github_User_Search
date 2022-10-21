@@ -8,7 +8,15 @@ export default function IfExist({ children, exist }) {
   return null;
 }
 
+IfExist.defaultProps = {
+  exist: false,
+};
+
 IfExist.propTypes = {
   children: PropTypes.node.isRequired,
-  exist: PropTypes.bool.isRequired,
+  exist: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
