@@ -2,9 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   user: null,
-  followers: [],
-  following: [],
-  repos: [],
+  followers: null,
+  following: null,
 };
 
 export const userSlice = createSlice({
@@ -14,8 +13,18 @@ export const userSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
+    setFollowers: (state, action) => {
+      state.followers = action.payload;
+    },
+    setFollowing: (state, action) => {
+      state.following = action.payload;
+    },
+    resetTree: () => {
+      return initialState;
+    },
   },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, setFollowers, setFollowing, resetTree } =
+  userSlice.actions;
 export default userSlice.reducer;

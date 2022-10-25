@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MdHomeWork } from 'react-icons/md';
@@ -6,13 +7,22 @@ import { TbWorld } from 'react-icons/tb';
 import { HiUsers } from 'react-icons/hi';
 import { BsPinMapFill } from 'react-icons/bs';
 import { BiGitRepoForked } from 'react-icons/bi';
+import { setFollowers, setFollowing } from '../../Redux/Slices/User/user.slice';
 import { useGetUserbyUsernameQuery } from '../../Redux/Api';
 import { IfExist } from '../../Helper';
 import imageNotFound from '../../Assets/Astronaut-amico.png';
 import './index.scss';
 
 export default function UserCard({ user }) {
+  const dispatch = useDispatch();
   const { data, isLoading, error } = useGetUserbyUsernameQuery(user);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setFollowers(data.followers));
+      dispatch(setFollowing(data.following));
+    }
+  }, [data]);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -65,7 +75,10 @@ export default function UserCard({ user }) {
         <div className='user_info_profile'>
           <IfExist exist={data.followers}>
             <div>
-              <Link to={`/followers/${user}`} className='user-links'>
+              <Link
+                to={`/followers/${user}/${data.followers}`}
+                className='user-links'
+              >
                 <HiUsers className='user-icons' />
                 <span>{data.followers} Followers</span>
               </Link>

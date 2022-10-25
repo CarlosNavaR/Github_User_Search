@@ -57,6 +57,11 @@
       gap: 1rem;
     }
   }
+
+
+  @media (max-width: 1000px) {
+    width: 65%;
+  }
 }
 
 .user-icons {

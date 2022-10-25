@@ -9,7 +9,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path='/' element={<Search />} />
-          <Route path='/followers/:user' element={<Followers />} />
+          <Route path='/followers/:user/:followers' element={<Followers />} />
           <Route path='/following/:user' element={<>b</>} />
           <Route path='*' element={<h1>404</h1>} />
         </Routes>
