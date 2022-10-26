@@ -14,7 +14,7 @@ export const githubApi = createApi({
       query: data => `users/${data.username}/followers?page=${data.page}`,
     }),
     getFollowingByUsername: builder.query({
-      query: username => `users/${username}/following`,
+      query: data => `users/${data.username}/following?page=${data.page}`,
     }),
   }),
 });

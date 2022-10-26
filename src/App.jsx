@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, HashRouter } from 'react-router-dom';
-import { Search, Followers } from './Views';
+import { Search, Followers, Following } from './Views';
 import './Styles/General/index.scss';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Search />} />
           <Route path='/followers/:user/:followers' element={<Followers />} />
-          <Route path='/following/:user' element={<>b</>} />
+          <Route path='/following/:user/:following' element={<Following />} />
           <Route path='*' element={<h1>404</h1>} />
         </Routes>
       </HashRouter>
