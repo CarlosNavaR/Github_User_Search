@@ -2,15 +2,17 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import dayjs from 'dayjs';
 import { MdHomeWork } from 'react-icons/md';
 import { TbWorld } from 'react-icons/tb';
 import { HiUsers } from 'react-icons/hi';
-import { BsPinMapFill } from 'react-icons/bs';
+import { BsPinMapFill, BsCalendarDate } from 'react-icons/bs';
 import { BiGitRepoForked } from 'react-icons/bi';
 import { setFollowers, setFollowing } from '../../Redux/Slices/User/user.slice';
 import { useGetUserbyUsernameQuery } from '../../Redux/Api';
 import { IfExist } from '../../Helper';
 import imageNotFound from '../../Assets/Astronaut-amico.png';
+
 import './index.scss';
 
 export default function UserCard({ user }) {
@@ -86,7 +88,10 @@ export default function UserCard({ user }) {
           </IfExist>
           <IfExist exist={data.following}>
             <div>
-              <Link to={`/following/${user}`} className='user-links'>
+              <Link
+                to={`/following/${user}/${data.following}`}
+                className='user-links'
+              >
                 <HiUsers className='user-icons' />
                 <span>{data.following} Following</span>
               </Link>
@@ -96,6 +101,16 @@ export default function UserCard({ user }) {
             <div>
               <BiGitRepoForked className='user-icons' />
               <span>{data.public_repos} Repos</span>
+            </div>
+          </IfExist>
+        </div>
+        <div>
+          <IfExist exist={data.created_at}>
+            <div>
+              <BsCalendarDate className='user-icons' />
+              <span>
+                Since {dayjs(data.created_at).format('MMMM D, YYYY h:mm A')}
+              </span>
             </div>
           </IfExist>
         </div>

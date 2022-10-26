@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { FollowCard } from '../../Components';
-import { useGetFollowersByUsernameQuery } from '../../Redux/Api';
-import './index.scss';
+import { useGetFollowingByUsernameQuery } from '../../Redux/Api';
 
-export default function Followers() {
-  const { user, followers } = useParams();
+export default function Following() {
+  const { user, following } = useParams();
   const [followersList, setFollowersList] = useState([]);
   const [page, setPage] = useState(1);
-  const { data, error, isLoading } = useGetFollowersByUsernameQuery({
+  const { data, error, isLoading } = useGetFollowingByUsernameQuery({
     username: user,
     page,
   });
@@ -40,7 +39,7 @@ export default function Followers() {
         </div>
         <div>
           <h1>
-            {user} has {followers} Followers
+            {user} follows {following} users
           </h1>
         </div>
       </div>
@@ -56,7 +55,7 @@ export default function Followers() {
           }}
           next={() => setPage(prev => prev + 1)}
           loader={<h4>Loading...</h4>}
-          hasMore={followersList.length < followers}
+          hasMore={followersList.length < following}
           scrollableTarget='scrollableDiv'
         >
           {followersList?.map(item => (

@@ -1,0 +1,63 @@
+@import '../../Styles/Variables/index.scss';
+
+.header-container {
+  background-color: $primary;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  gap: 1rem;
+
+  .link-back {
+    background-color: $secondary;
+    box-shadow: -1px -1px 5px 0px  rgba($color:  $primary, $alpha: 0.75);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+#scrollableDiv{
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 1rem;
+    padding: 1rem;
+    width: 80%;
+
+    p {
+      font-size: 18px;
+      color: #fff;
+    }
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba($color: #fff, $alpha: 0.5);
+  border-radius: 0.5rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:$primary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary;
+}
