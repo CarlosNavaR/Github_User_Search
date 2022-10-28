@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f0b0cdfa-a632-4d7b-bb41-f01b4d097133/deploy-status)](https://app.netlify.com/sites/usersearch-buz/deploys)
+
+
+
 # Boilerplate
 
 This is a template for all my projects in react with this develop tools

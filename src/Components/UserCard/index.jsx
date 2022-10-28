@@ -45,6 +45,7 @@ export default function UserCard({ user }) {
         <span className='user_info_name'>
           {data.name} <span>( {data.login} )</span>
         </span>
+        <hr style={{ width: '100%' }} />
         <div className='user_info_general'>
           <IfExist exist={data.company}>
             <div>
@@ -108,9 +109,7 @@ export default function UserCard({ user }) {
           <IfExist exist={data.created_at}>
             <div>
               <BsCalendarDate className='user-icons' />
-              <span>
-                Since {dayjs(data.created_at).format('MMMM D, YYYY h:mm A')}
-              </span>
+              <span>Since {dayjs(data.created_at).format('MMMM D, YYYY')}</span>
             </div>
           </IfExist>
         </div>
