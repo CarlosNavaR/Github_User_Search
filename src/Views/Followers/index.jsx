@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { FollowCard } from '../../Components';
+import { FollowCard, Loader } from '../../Components';
 import { useGetFollowersByUsernameQuery } from '../../Redux/Api';
 import './index.scss';
 
@@ -25,7 +25,11 @@ export default function Followers() {
   }, [data]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='center-div'>
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {

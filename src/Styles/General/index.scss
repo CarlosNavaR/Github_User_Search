@@ -7,3 +7,10 @@
   height: 100vh;
   background-color: $secondary_light;
 }
+
+.center-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
