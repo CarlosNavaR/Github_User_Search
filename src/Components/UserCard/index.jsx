@@ -12,6 +12,7 @@ import { setFollowers, setFollowing } from '../../Redux/Slices/User/user.slice';
 import { useGetUserbyUsernameQuery } from '../../Redux/Api';
 import { IfExist } from '../../Helper';
 import imageNotFound from '../../Assets/Astronaut-amico.png';
+import Loader from '../Loader';
 
 import './index.scss';
 
@@ -26,7 +27,13 @@ export default function UserCard({ user }) {
     }
   }, [data]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) {
+    return (
+      <div className='center-div'>
+        <Loader />
+      </div>
+    );
+  }
 
   if (error)
     return (

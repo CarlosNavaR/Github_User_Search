@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { FollowCard } from '../../Components';
+import { FollowCard, Loader } from '../../Components';
 import { useGetFollowingByUsernameQuery } from '../../Redux/Api';
 
 export default function Following() {
@@ -24,7 +24,11 @@ export default function Following() {
   }, [data]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='center-div'>
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
